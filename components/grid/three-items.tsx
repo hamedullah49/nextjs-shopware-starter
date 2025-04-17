@@ -50,7 +50,7 @@ function ThreeItemGridItem({
 export async function ThreeItemGrid() {
   // Collections that start with `hidden-*` are hidden from the search page.
   const collectionName = isSeoUrls()
-    ? "Summer-BBQ/Hidden-Category"
+    ? "Clothing"
     : "4ab73c06d90d4a5cb312209a64480d87";
   const { products: homepageItems } = await getCollectionProducts({
     collection: collectionName,

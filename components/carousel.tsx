@@ -1,14 +1,14 @@
-import { getCollectionProducts } from 'lib/shopware';
-import { isSeoUrls } from 'lib/shopware/helpers';
-import Link from 'next/link';
-import { GridTileImage } from './grid/tile';
+import { getCollectionProducts } from "lib/shopware";
+import { isSeoUrls } from "lib/shopware/helpers";
+import Link from "next/link";
+import { GridTileImage } from "./grid/tile";
 
 export async function Carousel() {
   const collectionName = isSeoUrls()
-    ? 'Summer-BBQ/Hidden-Carousel-Category'
-    : 'ff7bf3c59f1342a685844fbf8fdf9dc8';
+    ? "Clothing"
+    : "ff7bf3c59f1342a685844fbf8fdf9dc8";
   const { products } = await getCollectionProducts({
-    collection: collectionName
+    collection: collectionName,
   });
 
   if (!products?.length) return null;
@@ -24,13 +24,16 @@ export async function Carousel() {
             key={`${product.path}${i}`}
             className="relative aspect-square h-[30vh] max-h-[275px] w-2/3 max-w-[475px] flex-none md:w-1/3"
           >
-            <Link href={`/product/${product.path}`} className="relative h-full w-full">
+            <Link
+              href={`/product/${product.path}`}
+              className="relative h-full w-full"
+            >
               <GridTileImage
                 alt={product.title}
                 label={{
                   title: product.title,
                   amount: product.priceRange.maxVariantPrice.amount,
-                  currencyCode: product.priceRange.maxVariantPrice.currencyCode
+                  currencyCode: product.priceRange.maxVariantPrice.currencyCode,
                 }}
                 src={product.featuredImage?.url}
                 fill

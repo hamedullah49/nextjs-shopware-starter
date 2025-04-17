@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   experimental: {
     ppr: true,
@@ -13,11 +14,11 @@ export default {
   reactStrictMode: false,
   images: {
     // also other fromats like jpg, jpeg, png are working without adding them here
-    formats: ["image/avif", "image/webp"],
+    // formats: ["image/avif", "image/webp", "image/jpeg", "image/png"],
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "cdn.shopware.store",
+        protocol: "http",
+        hostname: "localhost",
       },
     ],
   },
